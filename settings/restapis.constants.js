@@ -2,7 +2,7 @@
 
 const RestAPISettings = {
     google: {
-        key: 'AIzaSyD76bEc6bijgfEqFU8KdxQHZXdcEdUZTIQ'
+        key: ''
     }
 };
 
