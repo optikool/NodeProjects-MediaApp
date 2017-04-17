@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use('/service/weather', new require('./WeatherController'));
-router.use('/service/upload', new require('./FileUpload'));
+router.use('/service/upload', new require('./FileUploadController'));
 
 router.get('/', (req, res) => {
     res.send('Move along. Nothing to see here...');
