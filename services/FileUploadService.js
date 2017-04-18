@@ -4,6 +4,7 @@ const express = require('express');
 const request = require('superagent');
 
 const router = express.Router();
+const serverSettings = require('../settings').EndpointsSettings;
 
 module.exports = class FileUploadService {
     static uploadFile(req, res, next) {
@@ -13,14 +14,13 @@ module.exports = class FileUploadService {
             res.status(400).json({ data: { name: 'error', message: `Invalid Image Type: ${file.mimetype}!` } });
         } else {
             const options = {
-                hostname: 'localhost',
-                port: 3010,
-                path: '/service/upload/',
-                method: 'POST',
+                hostname: serverSettings.fileServer.hostname,
+                port: serverSettings.fileServer.port,
+                path: serverSettings.fileServer.path
             };
 
             request
-                .post(`http://${options.hostname}:${options.port}${options.path}`)
+                .post(`${options.hostname}:${options.port}${options.path}`)
                 .attach('fupload', file.data, file.name)
                 .end(function (err, response) {
                     if (err) {
