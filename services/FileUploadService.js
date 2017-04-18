@@ -54,12 +54,10 @@ module.exports = class FileUploadService {
             form.pipe(request);
 
             request.on('error', (e) => {
-                // Todo: Find out why error is getting called on successful response
-                // console.error(`problem with request: ${e}`);
-                // res.json({ data: { name: 'error', message: `problem with request: ${e.message}` } })
+                console.error(`problem with request: ${e}`);
+                res.json({ data: { name: 'error', message: `problem with request: ${e.message}` } })
             });
 
-            request.write(JSON.stringify(form));
             request.end();
         }
     }
