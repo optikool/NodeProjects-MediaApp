@@ -2,7 +2,7 @@
 
 const ServerSettings = {
     host: 'localhost',
-    port: 3000
+    port: 3029
 };
 
 module.exports = ServerSettings;

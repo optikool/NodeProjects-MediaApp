@@ -5,23 +5,12 @@ const util = require('util');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
+const customValidators = require('./validators/validators');
 
 const serverSettings = require('./settings').ServerSettings;
 
 const options = {
-    customValidators: {
-        isImage: function (value, filename) {
-            switch (filename.toLowerCase()) {
-                case 'image/jpeg':
-                case 'image/png':
-                case 'image/gif':
-                    return true;
-                    break;
-                default:
-                    return false;
-            }
-        }
-    }
+    customValidators: customValidators
 };
 
 const app = express();

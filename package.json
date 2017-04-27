@@ -4,6 +4,7 @@
   "description": "NodeJS app for handling social media restful services.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dana Harris <optikool@yahoo.com>",
